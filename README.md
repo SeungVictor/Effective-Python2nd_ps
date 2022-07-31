@@ -1,13 +1,17 @@
-# __Effective Python__
+# __Effective Python 2nd__
 
--- It's for Koreans. For non-koreans, please see other posts.
+파이썬 문법 검색하다가 우연히[shoark7](https://github.com/shoark7)님이 깃헙을 발견 <br>
+책을 구매해놓고 펴볼생각조차 못했던 effective python을 아래처럼 정리하신걸 보고<br>
+기존에 정리하신걸 참고하면서 정리하면 많은 공부가 될거같아 이곳에 기록해보려고 합니다.<br>
 
-* [『파이썬 코딩의 기술』](http://book.naver.com/bookdb/book_detail.nhn?bid=10382589)의 59장의 내용을 한 장씩 정리.
-* 책을 대신해서 볼 수 있을 정도로 구체적으로 옮김.
-* 책 버전은 초판 2쇄(2016-06-20).
+* [『파이썬 코딩의 기술』](https://book.naver.com/bookdb/book_detail.naver?bid=16876960)의 90장의 내용을 정리해보고자 함.
+* 지은이 브렛 슬라킨 
+* 옮긴이 오현석
+* (주) 도서출판 길벗
+* 초판 4쇄(2021-12-20).
 
-* V1 완료 날짜: 2019-07-06
-* 40, 41 챕터는 본인의 비동기에 대한 이해 부족으로 아직 공부 못 했음. 향후 업데이트 하겠습니다.
+
+
 
 <br>
 
@@ -16,7 +20,7 @@
 
 ### 1장. 파이썬다운 생각
 
-1. [Better way 01. 사용 중인 파이썬의 버전을 알자][way1]
+1. [Better way 01. 사용 중인 파이썬의 버전을 알아두라][way1]
 2. [Better way 02. PEP 8 스타일 가이드를 따르자][way2]
 3. [Better way 03. bytes, str, unicode의 차이점을 알자][way3]
 4. [Better way 04. 복잡한 표현식 대신 헬퍼 함수를 사용하자][way4]
