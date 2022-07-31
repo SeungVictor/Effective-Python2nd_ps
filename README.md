@@ -109,15 +109,9 @@
 
 
 
-#### 시 하나 읽고 가세요.
-> 사랑했던 나의 마음 속에 작은 꿈 하나만을 남겨두고 너무 쉽게 떠나버린 너를 이제는 이해하려 해.
->   -- 달마도사 김혈국
 
 
-
-
-
-[way1]:https://github.com/shoark7/Effective-Python/blob/master/files/BetterWay01_KnowThyself.md
+[way1]:https://github.com/SeungVictor/Effective-Python2nd_ps/blob/master/files/BetterWay01_KnowThyself.md
 [way2]:https://github.com/shoark7/Effective-Python/blob/master/files/BetterWay02_PythonStyleGuide.md
 [way3]:https://github.com/shoark7/Effective-Python/blob/master/files/BetterWay03_Bytes_Str_Unicode.md
 [way4]:https://github.com/shoark7/Effective-Python/blob/master/files/BetterWay04_UseHelpFunction.md
