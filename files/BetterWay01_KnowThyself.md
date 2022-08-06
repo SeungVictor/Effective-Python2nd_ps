@@ -5,6 +5,7 @@
 
 * Created : 2022/07/31
 
+<br>
 
 파이썬2는 더 이상 사용하지 않는다. 파이썬3도 2018년6월 배포된 3.7 이상 사용
 <br>
@@ -16,7 +17,8 @@ CLI에서 버전 인자를 통해 확인하기
 알다시피 다양한 옵션을 줄 수 있다. 이때 파이썬의 버전을 확인할 수 있는 옵션은 다음 두 가지이다.
 
 <br>
-```sh
+
+```sh   
 python --version
 python -V
 >>> Python 3.9.12
@@ -84,7 +86,7 @@ sys.version_info(major=3, minor=9, micro=12, releaselevel='final', serial=0)
 <br>
 
 
-#### 기억해야할 내용
+#### 요점
 
 * Python3 이상 사용 할 것
 * 파이썬 실행 파일이 원하는 버전인지 확인
