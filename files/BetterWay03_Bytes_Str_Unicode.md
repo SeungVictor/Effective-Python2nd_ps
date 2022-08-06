@@ -1,83 +1,137 @@
-# Better way 03. bytes, str, unicode의 차이점을 알자
+# Better way 03. bytes와 str의 차이를 알아두라
 
-#### 20쪽
+#### 34쪽
 
-* Created : 2016/09/10  
-* Modified: 2019/05/03  
-
-
-## 1. Introduce
-
-인코딩은 중요하다. 리눅스, 맥, 윈도우즈에서 파일을 옮겨본 사람들은 동의할 것이다.  
-생각해보자. 내가 웹 앱을 운영하는데 수많은 운영체제을 통한 서로 다른 인코딩 문자의 입력과 마주할 수 있다.  
-난 CP949로 일을 처리할 수 있는데 클라이언트가 UTF-8로 입력을 보내면 어떻게 대처해야 할까?  
-
-아마도, **상대방의 utf-8을 binary stream으로 변환하고 그 바이츠를 cp949로 다시 인코딩해야 할 것이다.**  
-즉, 먼저 상대방의 입력을 바이너리로 인코딩하고, 그 결과를 CP949로 디코딩해야 할 것이다.
-
-**3장은 인코딩과 관련된 장이고 파이썬 인코딩에 대한 기초적인 지식만 적어본다.**
-
-
-**파이썬에서 문자 시퀀스를 나타내는 방식은 유니코드 문자열 방식과 바이츠(raw 8 bit) 형식 2가지다.**
-
-* **파이썬 3는 문자는 str, 바이츠는 bytes 클래스로 표현하고**
-* **파이썬 2는 문자는 unicode, 바이츠는 str 클래스로 표현한다. 헷갈리지 말아야 한다.**
-
-파이썬 2, 3간 연관된 바이너리 인코딩이 없어서 둘을 섞어 쓸때는 신중해야 한다. 여기서는 파이썬 3 기준으로 한다.
+* Created : 2022/08/06  
 
 <br>
 
-bytes 인스턴스에 대해 간단히 소개한다.
-str 문자열을 생성하는 방법은 " ㅁㄴㅇㄻㄴㅇㄹ"와 같이 따옴표 안에 문자나 숫자를 적는 것이다.
-반대로 bytes는 b'\x41'과 같이 문자열 앞에 b를 붙여야 한다.  
+**파이썬(3.0이상)에서 문자열 데이터의 시퀀스를 나타내는 방식은 bytes와 str 2가지다.**
+<br>
+[1bytes 설명참고](https://zepeh.tistory.com/313)<br>
+[__str__,__repr__](https://vaert.tistory.com/196)<br>
+[데이터 표현방법,ascii,unicode](https://slow-and-steady-wins-the-race.tistory.com/34)<br>
 
-아까 bytes는 8비츠로 이루어진다고 했다. 유의미한 바이츠 인스턴스는 ascii 상수로만 이루어진다.
-저 위의 b'\x41'가 보이는가? 41은 16진수의 수이고 10진수로 65다.
-그리고 '\x'가 저 숫자가 16진수임을 보증한다. 저걸 디코드하면 'A'가 나올 것이다. 왜냐하면 'A'의 ASCII
-코드가 65이기 때문이다.
+## 1. bytes(1byte = 8bits)란?
+컴퓨터 메모리에서 1byte 당 하나의 주소값이 할 당 된다.<br>
+1byte에는 하나의 영문자, 숫자, 기호, 공백을 담을 수 있다.<br>
+(한글이나 한자 등의 문자는 2 bytes나 그 이상으로 표현해야 함)<br>
+bytes type의 instance에는 부호가 없는 8bit([unsigned char, 0~255](https://dojang.io/mod/page/view.php?id=30))가 그대로 들어간다.<br>
+문자, 숫자, 기호 등을 컴퓨터가 이해 할 수 있는 0과 1의 조합으로 나태내려면 
+일정한 규칙(encoding)이 필요하다.
+<br>
+-> ASCII(가장 처음 만들어진 encoding)
 
-```python
->>> b'\x41'
-
-b'A'
-```
-
-그러니까 4비트 + 4비트 붙어서 8비트가 되는 것.(참고로 4비트는 nibble이라고 한다.)
-
-나중에 파이썬 인코딩을 더 다루게 되면 자세히 소개한다.
-
-유니코드 str과 바이너리 bytes를 호환하려면 다음과 같은 방식을 거쳐야 한다.
-
-* **'str -> bytes'는 str의 encode 메소드를 통해야 한다.**
-* **'bytes -> str'은 bytes의 decode 메소드를 통해야 한다.**
-
-Ubuntu를 기준으로 **인코딩, 디코딩 모두 기본 인코딩은 'utf-8'을 사용하며, 'CP949' 등 다른 인코딩을 사용하려면
-메소드에 인자를 주면 된다.** 기본 인코딩은 운영체제 환경에 따라 다를 수 있다.
-
+### 1.1 ASCII코드란?
+<br>
+ASCII코드는 1Byte를 이용하여 데이터를 표현하는데 error를 탐지하는 [Parity Bit](https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=ansdbtls4067&logNo=220886661657)를 제외하고
+<br>
+2^7(128)개의 문자를 표현한다.<br>
 
 ```python
-# example
-
-'a'.encode(encoding='CP949') # 1.
-b'\x45'.decode('CP949') # 2.
+a = b'h\x65llo'
+print(list(a))
+print(a)
+>>>
+[104, 101, 108, 108, 111]
+b'hello'
 ```
 
+ASCII코드는 다양한 언어를 컴퓨터 속 데이터로 표현하기에는 한계가 있으므로 거의 모든 언어를 표현할 수 있는 코드가 탄생한다.
+<br>
+-> Unicode
 
-경험담을 하나 풀자면, 본인은 윈도우를 사용하며 인코딩을 공부하기 위해 바탕화면에 txt 파일을 놓고 쓰고 지우고를 많이 반복했다.
+### 1.2 Unicode란?
+[Unicode참고](https://norux.me/31)<br>
+[한글과유니코드](https://gist.github.com/Pusnow/aa865fa21f9557fa58d691a8b79f8a6d)<br>
+[유니코드howto](https://docs.python.org/ko/3/howto/unicode.html#the-string-type)
+<br>
+유니코드(https://www.unicode.org/)는 인간 언어에서 사용하는 모든 문자를 나열하고 각 문자에 고유한 코드를 부여하고자 하는 명세입니다.<br>
+새로운 언어와 기호를 추가하기 위해 유니코드 명세가 계속 개정되고 갱신됩니다.<br>
+Unicode는 2bites+a를 사용하여 2^16 + a 개수만큼 표현 가능<br>
+U+라는 접두어가 붙어있으면 Unicode라는 의미이다. ASCII 코드의 0x41은 대문자 A이고
+이를 Unicode로 표현하면 U+0041이다.
+<br>
+
+## 2. str타입이란?
+python의 str instance에는 사람이 사용하는 언어의 문자를 표현하는 unicode point가 들어 있다.
+```python
+a = 'a\u0300 propos'
+print(list(a))
+print(a)
+>>>
+['a', '̀', ' ', 'p', 'r', 'o', 'p', 'o', 's']
+à propos
+```
+유니코드 문자열은 코드 포인트의 시퀀스이며, 0부터 0x10FFFF (십진수 1,114,111)의 범위를 갖는 수이다. 
+이 코드 포인트의 시퀀스는 메모리에서 코드 단위(code units)의 집합으로 표현될 필요가 있고, 그런 다음 코드 단위는 8비트 바이트로 매핑된다. 
+유니코드 문자열을 바이트 시퀀스로 변환하는 규칙을 문자 인코딩(character encoding), 또는 단지 인코딩(encoding)이라고 부른다.
+<br>
+
+## 3. 정리
+* Python 3.0부터 str형은 unicode문자를 포함함-> 어떤 문자열이든 "",''를 사용해서 묶는다면 유니코드로 저장됨을 뜻함.
+```python
+something = 'hello world'
+this = something.encode('utf-8')
+
+print(type(this))
+-> <class 'bytes'>
+
+print(type(this.decode('utf-8')))
+-> <class 'str'>
+```
 
 ```python
-fp = open('example.txt', 'r', encoding='utf-8').read()
+#bytes 방식
+a = b'\xed\x8c\x8c\xec\x9d\xb4\xec\x8d\xac'
+print(a)
+print(a.decode())
+>>>
+b'\xed\x8c\x8c\xec\x9d\xb4\xec\x8d\xac'
+파이썬
+```
+```python
+#str방식
+b = '파이썬'
+print(b)
+print(b.encode())
+```
+* 시스템 인코딩 검사 
+
+```python
+#python에서 검사시
+import sys
+print(sys.stdin.encoding)
+print(sys.stdout.encoding)
+->
+utf-8
+UTF-8
+
+#terminal에서 시스템인코딩 검사(윈도우이므로 cp949)
+python -c 'import locale; print(locale.getpreferredencoding())'
+->cp949
+```
+* python의 bytes방식이 ASCII를 뜻하는 것이 아님 ASCII는 encoding규약임
+* ASCII에는 한글을 표현할 수 없음 python의 bytes방식으로 한글 '파'를 표현할때 
+utf-8(default encoding(항상default는아님), hex(16진수)로 표현해줌
+```python
+'파'.encode()
+-> b'\xed\x8c\x8c'
+'파'.encode('euc-kr')
+-> b'\xc6\xc4'
+'파'.encode('utf-8')
+-> b'\xed\x8c\x8c'
+'파'.encode('ascii')
+->UnicodeEncodeError: 'ascii' codec can't encode character '\ud30c' in position 0: ordinal not in range(128)
 ```
 
+* bytes에는 8bit값의 sequence가 들어 있고, str에는 unicode code point의 sequence가 들어있다.
+* 처리할 입력이 원하는 문자 sequence(8bit 값, UTF-8로 encoding된 문자열, unicode point들)인지 확실히 하려면
+도우미함수를 사용하라.
+* bytes와 str instance를( >, ==, +, %와 같은) 연산자에 섞어서 사용할 수 없다.
+* 이진 데이터(binary data)를 파일에서 읽거나 쓰고 싶으면 항상 binary mode('rb'나 'wb')로 파일을 열어라.
 
-위 코드의 결과가 무엇이 나왔을까? _UnicodeDecodeError_ 가 발생했다. 윈도우는 기본적으로 CP949 인코딩을 사용한다.
-그런데 그것을 utf-8 인코딩을 사용해 열었으니 안 열리는 것이다. 각 인코딩 방법마다 글자를 표현하는 방법이 다르다. 위와 같은 일을 막기 위해서는 인코딩을 알아야 한다.
-
-내가 처음에 3장을 보고 충격을 먹었는데 왜냐하면 bytes의 존재 자체를 몰랐기에 그들의 차이점을 알자는 말에 벙찔 수밖에 없었다. 그래서 나와 같은 사람들을 위해서 bytes에 대해 먼저 소개하는 내용을 적었다. 두서 없이 급하게 적었는데 help(bytes)를 정독해보고, 질문이 생기면 연락하자.
 
 
 
-## 2. 생각해볼 문제.
 
-* `codecs` module에 대해 알아보자.
-* '가'를 utf-8로 인코딩해보자. 아마 'A'의 b'\x41' 보다 훨씬 길텐데 왜 그럴까?
