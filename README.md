@@ -23,7 +23,8 @@
 1. [Better way 01. 사용 중인 파이썬의 버전을 알아두라][way1]
 2. [Better way 02. PEP 8 스타일 가이드를 따르라][way2]
 3. [Better way 03. bytes와 str의 차이를 알아두라][way3]
-4. [Better way 04. 복잡한 표현식 대신 헬퍼 함수를 사용하자][way4]
+4. [Better way 04. C 스타일 형식 문자열 str.format과 쓰기보다는 f-string을 통한 인터폴레이션을 사용하라][way4]
+4. [Better way 05. 복잡한 표현식 대신 헬퍼 함수를 사용하자][way5]
 5. [Better way 05. 시퀀스를 슬라이스하는 방법을 알자][way5]
 6. [Better way 06. 한 슬라이스에 start, end, stride를 함께 쓰지 말자][way6]
 7. [Better way 07. map과 filter 대신에 리스트 컴프리헨션을 사용하자][way7]
@@ -114,7 +115,8 @@
 [way1]:https://github.com/SeungVictor/Effective-Python2nd_ps/blob/master/files/BetterWay01_KnowThyself.md
 [way2]:https://github.com/SeungVictor/Effective-Python2nd_ps/blob/master/files/BetterWay02_PythonStyleGuide.md
 [way3]:https://github.com/SeungVictor/Effective-Python2nd_ps/blob/master/files/BetterWay03_Bytes_Str_Unicode.md
-[way4]:https://github.com/SeungVictor/Effective-Python2nd_ps/blob/master/files/BetterWay04_UseHelpFunction.md
+[way4]:https://github.com/SeungVictor/Effective-Python2nd_ps/blob/master/files/BetterWay04_f-string.md
+[way5]:https://github.com/SeungVictor/Effective-Python2nd_ps/blob/master/files/BetterWay04_UseHelpFunction.md
 [way5]:https://github.com/SeungVictor/Effective-Python2nd_ps/blob/master/files/BetterWay05_HowToSequenceSlice.md
 [way6]:https://github.com/SeungVictor/Effective-Python2nd_ps/blob/master/files/BetterWay06_Dontusestridetoomuch.md
 [way7]:https://github.com/SeungVictor/Effective-Python2nd_ps/blob/master/files/BetterWay07_useListComp.md
