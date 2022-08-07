@@ -24,8 +24,8 @@
 2. [Better way 02. PEP 8 스타일 가이드를 따르라][way2]
 3. [Better way 03. bytes와 str의 차이를 알아두라][way3]
 4. [Better way 04. C 스타일 형식 문자열 str.format과 쓰기보다는 f-string을 통한 인터폴레이션을 사용하라][way4]
-4. [Better way 05. 복잡한 표현식 대신 헬퍼 함수를 사용하자][way5]
-5. [Better way 05. 시퀀스를 슬라이스하는 방법을 알자][way5]
+5. [Better way 05. 복잡한 표현식 대신 헬퍼 함수를 사용하자][way5]
+<!-- 5. [Better way 05. 시퀀스를 슬라이스하는 방법을 알자][way5]
 6. [Better way 06. 한 슬라이스에 start, end, stride를 함께 쓰지 말자][way6]
 7. [Better way 07. map과 filter 대신에 리스트 컴프리헨션을 사용하자][way7]
 8. [Better way 08. 리스트 컴프리헨션에서 표현식을 두 개 넘게 쓰지 말자][way8]
@@ -106,7 +106,7 @@
 56. [Better way 56.  unittest로 모든 것을 테스트하자][way56]
 57. [Better way 57.  pdb를 이용한 대화식 디버깅을 고려하자][way57]
 58. [Better way 58.  최적화하기 전에 프로파일하자][way58]
-59. [Better way 59.  tracemalloc으로 메모리 사용 현황과 누수를 파악하자][way59]
+59. [Better way 59.  tracemalloc으로 메모리 사용 현황과 누수를 파악하자][way59] -->
 
 
 
