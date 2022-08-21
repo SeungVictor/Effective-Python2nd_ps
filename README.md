@@ -118,7 +118,7 @@
 [way4]:https://github.com/SeungVictor/Effective-Python2nd_ps/blob/master/files/BetterWay04_f-string.md
 [way5]:https://github.com/SeungVictor/Effective-Python2nd_ps/blob/master/files/BetterWay05_UseHelpFunction.md
 [way5]:https://github.com/SeungVictor/Effective-Python2nd_ps/blob/master/files/BetterWay05_HowToSequenceSlice.md
-[way6]:https://github.com/SeungVictor/Effective-Python2nd_ps/blob/master/files/BetterWay06_Dontusestridetoomuch.md
+[way6]:https://github.com/SeungVictor/Effective-Python2nd_ps/blob/master/files/BetterWay06_Unpacking.md
 [way7]:https://github.com/SeungVictor/Effective-Python2nd_ps/blob/master/files/BetterWay07_useListComp.md
 [way8]:https://github.com/SeungVictor/Effective-Python2nd_ps/blob/master/files/BetterWay08_ListComprehension.md
 [way9]:https://github.com/SeungVictor/Effective-Python2nd_ps/blob/master/files/BetterWay09_UseGeneratorExpression.md
