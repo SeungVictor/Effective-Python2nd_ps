@@ -3,7 +3,7 @@
 파이썬 문법 검색하다가 우연히 [shoark7](https://github.com/shoark7)님이 깃헙을 발견 <br>
 책을 구매해놓고 펴볼생각조차 못했던 effective python을 아래처럼 정리하신걸 보고<br>
 기존에 정리하신걸 참고하면서 정리하면 많은 공부가 될거같아 이곳에 기록해보려고 합니다.<br>
-commit test
+
 
 
 * [『파이썬 코딩의 기술』](https://book.naver.com/bookdb/book_detail.naver?bid=16876960)의 90장의 내용을 <ins>__개인공부 목적으로__</ins> 정리해보고자 함
